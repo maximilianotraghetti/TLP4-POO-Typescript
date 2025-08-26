@@ -18,7 +18,7 @@ Una función con parámetros obligatorios y opcionales.
 ``function imprimirDatos(nombre: string, edad?: number, peso: number = 50): void {
 }  
 ``
-
+Una función que devuelve un promise.
 ``async function somePromise(a: number, b: string): Promise<string> {
     return "resultado";
 }   
