@@ -4,7 +4,7 @@ class Usuario implements IUsuario {
   id: string;
   nombre: string;
   private materialesPrestados: Material[] = [];
-  private ultimaPrestacion!: Material;  // non-null assertion
+  private ultimaPrestacion!: Material;  
 
   constructor(id: string, nombre: string) {
     this.id = id;
@@ -16,9 +16,9 @@ class Usuario implements IUsuario {
 
   prestar(material: Material): void {
     if (material.disponibilidad) {
-      material.disponibilidad = false;   // usar setter
+      material.disponibilidad = false;   
       this.materialesPrestados.push(material);
-      this.ultimaPrestacion = material;  // guarda la última
+      this.ultimaPrestacion = material; 
       console.log(`${this.nombre} ha prestado: ${material.titulo}`);
     } else {
       console.log(`El material "${material.titulo}" no está disponible.`);
@@ -26,17 +26,17 @@ class Usuario implements IUsuario {
   }
 
   mostrarPrestados(): void {
-    console.log(`📚 Materiales prestados por ${this.nombre}:`);
+    console.log(` Materiales prestados por ${this.nombre}:`);
     if (this.materialesPrestados.length === 0) {
       console.log("Ninguno.");
     } else {
-      this.materialesPrestados.forEach(m => m.mostrarInfo()); // polimorfismo
+      this.materialesPrestados.forEach(m => m.mostrarInfo());
     }
   }
 
   mostrarUltimaPrestacion(): void {
     if (this.ultimaPrestacion) {
-      console.log(`🕑 Última prestación de ${this.nombre}:`);
+      console.log(`Última prestación de ${this.nombre}:`);
       this.ultimaPrestacion.mostrarInfo();
     } else {
       console.log(`${this.nombre} aún no ha prestado materiales.`);

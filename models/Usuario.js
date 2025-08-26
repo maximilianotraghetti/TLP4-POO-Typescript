@@ -12,9 +12,9 @@ var Usuario = /** @class */ (function () {
     };
     Usuario.prototype.prestar = function (material) {
         if (material.disponibilidad) {
-            material.disponibilidad = false; // usar setter
+            material.disponibilidad = false;
             this.materialesPrestados.push(material);
-            this.ultimaPrestacion = material; // guarda la última
+            this.ultimaPrestacion = material;
             console.log("".concat(this.nombre, " ha prestado: ").concat(material.titulo));
         }
         else {
@@ -22,17 +22,17 @@ var Usuario = /** @class */ (function () {
         }
     };
     Usuario.prototype.mostrarPrestados = function () {
-        console.log("\uD83D\uDCDA Materiales prestados por ".concat(this.nombre, ":"));
+        console.log(" Materiales prestados por ".concat(this.nombre, ":"));
         if (this.materialesPrestados.length === 0) {
             console.log("Ninguno.");
         }
         else {
-            this.materialesPrestados.forEach(function (m) { return m.mostrarInfo(); }); // polimorfismo
+            this.materialesPrestados.forEach(function (m) { return m.mostrarInfo(); });
         }
     };
     Usuario.prototype.mostrarUltimaPrestacion = function () {
         if (this.ultimaPrestacion) {
-            console.log("\uD83D\uDD51 \u00DAltima prestaci\u00F3n de ".concat(this.nombre, ":"));
+            console.log("\u00DAltima prestaci\u00F3n de ".concat(this.nombre, ":"));
             this.ultimaPrestacion.mostrarInfo();
         }
         else {
